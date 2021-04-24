@@ -12,6 +12,6 @@
         <input type="text" class="form-control" ng-model="price" placeholder="Enter new car price">
     </label>
     <button ng-disabled="make === '' || model === '' || price === ''" class="btn btn-primary btn-sm btn-style"
-            ng-click="addNewCarHandler()" type="submit">Add new car
+            ng-click="$ctrl.carOut({make: make, model: model, price: price}); clearCar();" type="submit">Add new car
     </button>
 </form>

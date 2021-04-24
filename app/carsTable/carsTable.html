@@ -1,6 +1,9 @@
-<div ng-controller="carsTableCtrl">
-    <div style="text-align: end">
-        <button ng-disabled="!isRowSelected" class="btn btn-danger btn-sm" ng-click="deleteRow()"><i class="fas fa-trash-alt"></i> Delete row </button>
+<div>
+    <div class="d-flex">
+        <h5>Cars table</h5>
+        <div style="margin-left: auto">
+            <button ng-disabled="!isRowSelected" class="btn btn-danger btn-sm" ng-click="deleteRow()"><i class="fas fa-trash-alt"></i> Delete row </button>
+        </div>
     </div>
     <div ag-grid="gridOptions" class="ag-theme-alpine mt-3" style="height: 70vh"></div>
 </div>
