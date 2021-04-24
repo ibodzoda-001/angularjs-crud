@@ -9,72 +9,22 @@ const myApp = angular.module('myApp', [
     'myApp.carsTable',
 ]);
 
-const cars = [
-    {
-        make: 'Toyota213123',
-        model: 'Prius',
-        price: '30.000$'
-    },
-    {
-        make: 'Tesla',
-        model: 'Model X',
-        price: '100.000$'
-    },
-    {
-        make: 'Nissan',
-        model: 'GT-R',
-        price: '50.000$'
-    },
-    {
-        make: 'Toyota',
-        model: 'Prius',
-        price: '30.000$'
-    },
-    {
-        make: 'Tesla',
-        model: 'Model X',
-        price: '100.000$'
-    },
-    {
-        make: 'Nissan',
-        model: 'GT-R',
-        price: '50.000$'
-    },
-    {
-        make: 'Toyota',
-        model: 'Prius',
-        price: '30.000$'
-    },
-    {
-        make: 'Tesla',
-        model: 'Model X',
-        price: '100.000$'
-    },
-    {
-        make: 'Nissan',
-        model: 'GT-R',
-        price: '50.000$'
-    },
-    {
-        make: 'Toyota',
-        model: 'Prius',
-        price: '30.000$'
-    },
-    {
-        make: 'Tesla',
-        model: 'Model X',
-        price: '100.000$'
-    },
-    {
-        make: 'Nissan',
-        model: 'GT-R',
-        price: '50.000$'
-    }
-];
-
 myApp.controller("myAppCtrl", function ($scope) {
+    $scope.cars = [
+        {
+            make: 'Toyota213123',
+            model: 'Prius',
+            price: '30.000$'
+        },
+        {
+            make: 'Toyota',
+            model: 'Prado',
+            price: '320.000$'
+        }
+    ];
+
     $scope.getCar = function(car) {
-        cars.push(car);
+        $scope.cars = [car, ...$scope.cars];
     };
 
 });

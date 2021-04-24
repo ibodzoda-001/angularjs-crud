@@ -9,13 +9,19 @@
 
     function carsTableCtrl($scope) {
 
+        this.$onChanges = function (changes) {
+            $scope.carsIn = changes.carsIn.currentValue;
+            $scope.gridOptions.api.setRowData($scope.carsIn);
+        };
+
         this.$onInit = function () {
             $scope.carsIn = this.carsIn;
+            $scope.gridOptions.api.setRowData($scope.carsIn);
         };
 
         $scope.gridOptions = {
             columnDefs: columnDefs,
-            rowData: [],
+            rowData: undefined,
             pagination: true,
             suppressCellSelection: true,
             paginationAutoPageSize: true,
@@ -24,6 +30,9 @@
                 params.api.sizeColumnsToFit();
             }
         };
+
+        const currentCarsGridDiv = document.querySelector('#myGrid');
+        new agGrid.Grid(currentCarsGridDiv, $scope.gridOptions);
 
         $scope.isRowSelected = false;
 
@@ -36,8 +45,8 @@
 
         $scope.deleteRow = function () {
             const selected = $scope.gridOptions.api.getFocusedCell();
-            $scope.gridOptions.rowData.splice(selected.rowIndex, 1);
-            $scope.gridOptions.api.setRowData($scope.gridOptions.rowData);
+            $scope.carsIn.splice(selected.rowIndex, 1);
+            $scope.gridOptions.api.setRowData($scope.carsIn);
             $scope.isRowSelected = false;
         };
     }
@@ -46,7 +55,7 @@
         .component('carsTable', {
             templateUrl: 'carsTable/carsTable.html',
             bindings: {
-                carsIn: '='
+                carsIn: '<'
             },
             controller: carsTableCtrl
         });
