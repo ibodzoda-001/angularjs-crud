@@ -9,7 +9,7 @@ module.exports = function(grunt) {
                     'assets/js/*.js',
                     'assets/css/production.css'
                 ],
-                tasks: ['concat', 'uglify'],
+                tasks: ['sass'],
                 options: {
                     spawn: false
                 },
